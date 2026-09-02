@@ -1,0 +1,8 @@
+repozytorium - ogólnie folder
+github - strona gdzie ma się repozytoria czyli te foldery
+git - można śledzić zmiany w plikach i kodzie źródłowym
+commit - zapisywanie zmian
+branch - tworzenie gałęzi, aby nie psuć głównego kodu
+checkout - przełączanie się miedzy gałęziami
+merge - łączy zmiany z jednej gałęzi do drugiej
+rebase - służy do przenoszenia i ponownego nakładania commitów z jednej gałęzi na inną
