@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+    crossorigin="anonymous"></script>
+
+    <script>
+        $(function(){
+            // $("button").on("click", function(){
+            //     console.log("Testujemy przycisk")
+            // })
+            // //sposob 2
+            // $("button").click(function(){
+            //     console.log("Test przycisku metoda 2")
+            // })
+
+            // $("button").click(function(){
+            //     alert("czesc")
+            // })
+            
+            //-------------------------------------------
+            
+            // $("button").click(function(){
+            //     $("#komunikat").append("eldo")
+            // })
+
+            //klikniecie w szary kwadrat zmienia jego kolor tla na czerwony (css)
+            // $("div").click(function(){
+            //     $("#kwadrat").css("background-color", "red")
+            // })
+        
+            //Dodaj drugi przycisk "Resetuj", który przywraca kwadratowi szary kolor i czyści paragraf #komunikat
+
+            $("#resetuj").click(function(){
+                $("#kwadrat").css("background-color", "lightgray")
+                $("#komunikat").remove().text()
+            })
+        });
+    </script>
+    <style>
+        #kwadrat { width: 150px; height: 150px; background: lightgray; }
+    </style>
+</head>
+<body>
+    <button id="przywitaj">Przywitaj się</button>
+    <button id="resetuj">Resetuj</button>
+    <p id="komunikat">bwrrw</p>
+    
+    <div id="kwadrat"></div>
+</body>
+</html>
