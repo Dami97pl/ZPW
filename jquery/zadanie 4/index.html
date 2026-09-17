@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        // $(function(){
+        //     //stworzyć diva który ma wymiary 200x200 tlo czerwone i napiasc skrypt ktory powoduje ze jak nacisnie sie na kwadrat to z boku pojawia sie info ile razy zostal nacisniety
+        //     let licznik = 1;
+        //     $("#kwadrat").click(function(){
+        //         $("#pisz").text("Licznik wynosi: " + licznik++)
+        //     })
+        // });
+
+        // $(function(){
+        //     //Przycisk "Dodaj na koniec" wpisany produkt jako nowy <li> na końcu listy
+        //     $("#naKoniec").click(function(){
+        //         let value = $("input").val();
+        //         $("ul").append("<li>" + value + "</li>")
+        //     })
+        // })
+
+        // $(function(){
+        //     //Przycisk "Dodaj na poczatek" dodaje produkt na poczatku listy
+        //     $("#naPoczatek").click(function(){
+        //         let value = $("input").val();
+        //         $("ul").prepend("<li>" + value + "</li>")
+        //     })
+        // })
+
+        
+        $(function(){
+            //Produkty dodane na poczatek maja zielony kolor tekstu, a dodane na koniec niebieski
+            //Po dodaniu pole tekstowe ma się wyczyścić. Jesli pole jest puste, nic nie jest dodawane
+            $("#naKoniec").click(function(){
+                let value = $("input").val();
+                if(value.length > 0){
+                    $("ul").append("<li>" + value + "</li>")
+                    $("li").last().css({
+                        "color": "blue",
+                        "font-weight": "bold"
+                    })
+                }
+                $("input").val("");
+                
+            })
+            
+            $("#naPoczatek").click(function(){
+                let value = $("input").val();
+                if(value.length > 0){
+                    $("ul").prepend("<li>" + value + "</li>")
+                    $("li").first().css({
+                        "color": "green",
+                        "font-weight": "bold"
+                    })
+                }
+                
+            })
+        })
+
+    </script>
+    <style>
+        #kwadrat{
+            background-color: red;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+</head>
+<body>
+    <!-- <div id="kwadrat"></div>
+
+    <p id="pisz"></p> -->
+
+    
+    <ul id="lista">
+        <li>Chleb</li>
+        <li>Mleko</li>
+    </ul>
+    <input type="text" id="produkt" placeholder="Nazwa produktu">
+    <button id="naKoniec">Dodaj na koniec</button>
+    <button id="naPoczatek">Dodaj na początek</button>
+</body>
+</html>
