@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        //Po kliknięciu przycisku zmień treść akapitu na "Nowy tekst"
+        $(function(){
+           $("#zmien").on("click", function(){
+            $("#tekst").text("Nowy tekst")
+           })
+        })
+
+        //Przycisk ma naprzemiennie chować i pokazywać div. Poszukaj metody .toggle()
+        $(function(){
+            $("#przelacz").click(function(){
+                $("#pudelko").toggle();
+            })
+        })
+
+        //Po kliknieciu akapitu ma sie on podświetlić. Drugie kliknięcie zdejmuje podświetlenie (.toggleClass())
+        $(function(){
+            $(".akapit").click(function(){
+                $(this).toggleClass("podswietlony");
+            })
+        })
+
+        //Po kliknięciu wpisz do #wynik tekst ,,Cześć, <imie>!". Jeśli pole jest puste, wypisz ,,Podaj imie"
+        $(function(){
+            $("#przywitaj").click(function(){
+                let $imie = $("input").val()
+                if($imie != ""){
+                    $("#wynik").text("Czesc " + $imie)
+                }else{
+                    $("#wynik").text("Podaj imie")
+                }
+            })
+        })
+    </script>
+    <style>
+        .podswietlony{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <p id="tekst">Szary tekst</p>
+        <button id="zmien">Zmien</button>
+
+        <div id="pudelko">Widzisz mnie</div>
+        <button id="przelacz">Pokaz/ukryj</button>
+
+        <p class="akapit">Kliknij mnie</p>
+
+        <input type="text" id="imie">
+        <button id="przywitaj">Przywitaj</button>
+        <p id="wynik"></p>
+    </div>
+</body>
+</html>

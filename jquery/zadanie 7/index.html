@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        //Policz sume wszystkich cen i wpisz ją do #suma
+        $(function(){
+           let suma = 0;
+            $("li").each(function(){
+                suma += $(this).data("cena")    
+            })
+            $("#suma").text(suma)
+        })
+
+        //Nadaj klasę "drogie" każdemu li, którego cena przekracza 20
+        $(function(){
+            $("li").each(function(){
+                if($(this).data("cena") > 20){
+                    $(this).addClass("drogie")
+                }
+            })
+        })
+
+        //Pokoloruj co drugi element na szaro (użyj index)
+        $(function(){
+            $("li").each(function(index, element){
+                if(index % 2 == 0){
+                    $(this).css("color", "grey")
+                }
+            })
+        })
+
+        //Znajdź pierwszy element droższy niż 20, podświetl go i przerwij petlę
+        $(function(){
+            $("li").each(function(){
+                if($(this).data("cena") > 20){
+                    $(this).css("background-color", "red")
+                    return false
+                }
+            })
+        })
+    </script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <div id="container">
+        <ul id="lista">
+            <li data-cena="10">Chleb</li>
+            <li data-cena="25">Ser</li>
+            <li data-cena="5">Woda</li>
+            <li data-cena="40">Szynka</li>
+        </ul>
+        <p id="suma"></p>
+    </div>
+</body>
+</html>
