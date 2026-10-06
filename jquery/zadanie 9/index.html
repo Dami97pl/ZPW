@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        //Object Event
+        // $(function(){
+        //     $(document).on("keydown keyup keypress", function(){
+        //         $("#eventType").text(event.type);
+        //     })
+        // })
+        
+        // $(function(){
+        //     $(document).on("mousemove", function(){
+        //         $("#pageX").text(event.pageX);
+        //         $("#pageY").text(event.pageY);
+        //     })
+        // })
+
+        //kwadrat 200x200 w stylach, czerwony
+
+        $(function(){
+            $("#jablko").css({
+                "margin-left": Math.floor((Math.random() * 1000) + 1) + "px",
+                "margin-top": Math.floor((Math.random() * 1000) + 1) + "px",
+            })
+            
+            let position = 0
+            let positionY = 0
+
+            $(document).on("keypress", function(){
+                if(event.key == "a"){
+                    position = position - 10
+                    $("#kwadrat").css("margin-left", position+"px")
+                } else if(event.key == "d"){
+                    position = position + 10
+                    $("#kwadrat").css("margin-left", position+"px")
+                }
+            })
+
+            $(document).on("keypress", function(){
+                if(event.key == "s"){
+                    positionY = positionY + 10
+                    $("#kwadrat").css("margin-top", positionY+"px")
+                } else if(event.key == "w"){
+                    positionY = positionY - 10
+                    $("#kwadrat").css("margin-top", positionY+"px")
+                }
+            })
+            //jesli dojdzie do kolizji to jablko znika a nasz kwadrat zwieksza sie po 10px z kazdej strony
+            let jablkoSzerokosc = $("#jablko").width();
+            let jablkoWysokosc = $("#jablko").height();
+
+            let kolizjaX = (position < jablkoSzerokosc) && (position + szerokosc > jablkoX);
+            let kolizjaY = (positionY < jablkoWysokosc) && (positionY + szerokosc > jablkoY);
+
+            if(kolizjaX && kolizjaY){
+                $("#jablko").hide();
+                szerokosc += 20; 
+                position -= 10;
+                positionY -= 10;
+            }
+        })
+
+    </script>
+    <style>
+        #kwadrat{
+            width: 200px;
+            height: 200px;
+            background-color: red;
+            position: absolute;
+        }
+
+        #jablko{
+            width: 20px;
+            height: 20px;
+            background-color: green;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="text" id="pole">
+
+        <p>
+            Typ zdarzenia:
+            <span id="eventType">---</span>
+        </p>
+
+        <p>
+            Pozycja myszy:
+            X = <span id="pageX">---</span>
+            Y = <span id="pageY">---</span>
+        </p>
+    </div>
+
+    <div id="kwadrat"></div>
+    <div id="jablko"></div>
+</body>
+</html>
