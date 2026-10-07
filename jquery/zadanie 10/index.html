@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" 
+    crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        $(function(){
+            let licznik = 0;
+
+            $("#dodaj").click(function(){
+                let div = document.createElement("div");
+
+                let x = Math.floor(Math.random() * 151) + 100;
+                let y = Math.floor(Math.random() * 151) + 100;
+
+                let r = Math.floor(Math.random() * 256);
+                let g = Math.floor(Math.random() * 256);
+                let b = Math.floor(Math.random() * 256);
+
+                let liczba = Math.floor(Math.random() * 100) + 1;
+
+                let $div =$('<div></div>').addClass('card').text(liczba).css({
+                    "background-color": `rgb(${r}, ${g}, ${b})`,
+                    "width": x + "px",
+                    "height": y + "px"
+                });
+
+                $('#container').append($div);
+                $('#licznik').text(++licznik);
+
+            })
+
+            $('#usun').click(function(){
+                $(".card").remove();
+                licznik = 0;
+                $('#licznik').text(licznik);
+            });
+
+            $('#container').on('click', '.card', function() {
+                let number = $(this).data('number');
+                if (number % 2 === 0) {
+                    $(this).css('background-color', 'blue');
+                } else {
+                    $(this).css('background-color', 'red');
+                }
+            });
+
+            $(document).on("dblclick", ".card", function() {
+                $(this).remove();$('#licznik').text(--licznik);
+            });
+
+            
+        })
+        
+    </script>
+    <style>
+        
+    </style>
+</head>
+<body>
+    <button id="dodaj">Dodaj kartę</button>
+    <button id="usun">Usuń wszystkie</button>
+    <div id="container">
+        <p id="licznik">0</p>
+    </div>
+</body>
+</html>
