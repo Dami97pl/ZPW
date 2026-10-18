@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        // hide()
+        // show()
+        // toggle()
+        // slideUp()
+        // slideDown()
+        // slideToggle()
+        // $(function(){
+        //     $("#hide").on("click", function(){
+        //         $("#1").hide();
+        //     })
+
+        //     $("#show").on("click", function(){
+        //         $("#1").show();
+        //     })
+
+        //     $("#toggle").on("click", function(){
+        //         $("#2").toggle();
+        //     })
+
+        //     $("#slideUp").on("click", function(){
+        //         $("#3").slideUp();
+        //     })
+
+        //     $("#slideDown").on("click", function(){
+        //         $("#3").slideDown();
+        //     })
+
+        //     $("#slideToggle").on("click", function(){
+        //         $("#4").slideToggle();
+        //     })
+        // })
+
+//--------------------------------------------------------------
+        //QUIZ
+        //- 1 pytanie
+        //- ABCD
+        //-odpowiedz poprawna na zielono (tło)
+        //-odpowiedz niepoprawna na czerwono (tło)
+        //-wyjaśnienie poprawnej odpowiedzi
+
+
+        $(function(){
+                $("#wyjasnienie").hide();
+                $("input[name='odpowiedz']").on("change", function() {
+                    let wybranaopcja = $("input[name='odpowiedz']:checked").val();
+                    if(wybranaopcja == "zuzel"){
+                        $("#wyjasnienie").show();
+                        $("#zuzelid").css("background-color", "green");
+                    }
+
+                    if(wybranaopcja == "tenis"){
+                        $("#tenisid").css("background-color", "red");
+                    }
+
+                    if(wybranaopcja == "pilka"){
+                        $("#pilkaid").css("background-color", "red");
+                    }
+
+                    if(wybranaopcja == "picipolo"){
+                        $("#picipoloid").css("background-color", "red");
+                    }
+                });
+        })
+
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- <p id="1">1</p>
+    <p id="2">2</p>
+    <p id="3">3</p>
+    <p id="4">4</p>
+
+    <button id="hide">Hide</button>
+    <button id="show">show</button>
+    <button id="toggle">Toggle</button>
+    <button id="slideUp">Slide Up</button>
+    <button id="slideDown">Slide Down</button>
+    <button id="slideToggle">slide Toggle</button> -->
+
+    <h1>PYTANIE 1</h1>
+    <h3>Który sport jest NAJLEPSZY NA ŚWIECIE?</h3>
+
+    <input type="radio" name="odpowiedz" value="pilka">
+    <label for="odp1"><p id="pilkaid">Pilka</p></label>
+    <input type="radio" name="odpowiedz" value="zuzel">
+    <label for="odp1"><p id="zuzelid">Zuzel</p></label>
+    <input type="radio" name="odpowiedz" value="tenis">
+    <label for="odp1"><p id="tenisid">Tenis</p></label>
+    <input type="radio" name="odpowiedz" value="picipolo">
+    <label for="odp1"><p id="picipoloid">Picipolo</p></label>
+    <p id="wyjasnienie">BO NAJLEPSZY JEST!</p>
+</body>
+</html>

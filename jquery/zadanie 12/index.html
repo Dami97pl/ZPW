@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        // $(function(){
+        //     $("#formularz").submit(function(e){
+        //         e.preventDefault();
+        //         if($("#nick").val() === ""){
+        //             $("#info").text("Podaj nick")
+        //         } else{
+        //             $("#info").text("Przesłano nick " + $("#nick").val())
+        //         }
+        //     })
+        // })
+
+        // Zadanie: Zrób formularz z polami "Email" i "Hasło". 
+        // Przy wysyłaniu sprawdź czy hasło ma co najmniej 6 znaków. 
+        // Jeśli nie, wyświetl na czerwono "Hasło jest za krótkie", a jesli tak, na zielono "Zalogowano". 
+        // Wskazówka: długość tekstu sprawdzisz przez .length, a kolor zmienisz metodą .css("kolor", "red").
+    
+        $(function(){
+            $("#formularz").submit(function(e){
+                e.preventDefault();
+                var haslo = $("#haslo").val();
+                if(haslo.length < 6){
+                    $("#wyp").text("Haslo jest za krotkie");
+                    $("#wyp").css("color", "red");
+                } else{
+                    $("#wyp").text("Zalogowano").css("color", "green");
+                }
+            })
+        })
+    
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- <form id="formularz">
+        <input type="text" id="nick">
+        <button type="submit">Wyślij</button>
+    </form>
+    <p id="info"></p> -->
+
+    <form id="formularz">
+        Email<input type="email">
+        Haslo<input type="password" id="haslo">
+        <button type="submit">Wyślij</button>
+
+        <p id="wyp"></p>
+    </form>
+</body>
+</html>
