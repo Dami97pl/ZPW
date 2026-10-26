@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <title>Document</title>
+    <script>
+        //1
+        // $(function(){
+        //     $("#kolor").change(function(){
+        //         $("body").css("background-color", $(this).val());
+        //     })
+        // })
+        //--------------------------------------------------------------------------------------------------------
+        //2
+        //Zrób listę select z trzema rozmiarami pizzy: mała (20zł), średnia(30zł), duża(40zł). Po wybraniu rozmiaru pod listą ma się wyświetlić "Do zapłaty: [cena] zł". Wskazówka: cenę zapisz w value każdej opcji.
+        // $(function(){
+        //     $("#pizza").change(function(){
+        //         $("p").text("Do zapłaty: " + $(this).val() + "zł")
+        //     })
+        // })
+        //--------------------------------------------------------------------------------------------------------
+        //3
+        // $(function(){
+        //     $("#newsletter").change(function(){
+        //         if($(this).is(":checked")){
+        //             $("#stan").text("Zapisano nas do newslettera")
+        //         } else{
+        //             $("#stan").text("Wypisano nas z newslettera")
+        //         }
+        //     })
+        // })
+        //--------------------------------------------------------------------------------------------------------
+        //4
+        //Pod formularzem rejestracji jest checkbox ,,Akceptuję regulamin" i przycisk ,,Zarejestruj". Na starcie przycisk jest zablokowany. Zaznaczenie checkboxa ma go odblokować, a odznaczenie znowu zablokować
+        // $(function(){
+        //     $("#regu").change(function(){
+        //         if($(this).is(":checked")){
+        //             $("#przycisk").prop("disabled", false)
+        //         } else{
+        //             $("#przycisk").prop("disabled", true)
+        //         }
+        //     })
+        // })
+        //--------------------------------------------------------------------------------------------------------
+        //5
+        $(function(){
+            $("#tekst").on("input",function(){
+                $("#podglad").text($(this).val())
+            })
+        })
+        //--------------------------------------------------------------------------------------------------------
+        //6
+        //Zrób pole textarea na komentarz (max 100 znaków) i pod nim licznik ,,Pozostało znaków: 100". Licznik ma się zmniejszać podczas pisania. Gdy zostanie mniej niż 10 znaków, licznik ma zmienić kolor na czerwony.
+        $(function(){
+            $("#komentarz").on("input", function(){
+                let charLeft = 100 - Number($(this).val().length);
+                $("#licznik").text(charLeft)
+
+                if(charLeft < 10){
+                    $("#licznik").css("color", "red")
+                } else{
+                    $("#licznik").css("color", "black")
+                }
+            })
+        })
+    </script>
+    <style>
+
+    </style>
+</head>
+<body>
+    <!-- 1 -->
+    <select id="kolor">
+        <option value="white">Biały</option>
+        <option value="yellow">Żółty</option>
+        <option value="lightblue">Niebieski</option>
+    </select>
+    <hr>
+    <!-- 2 -->
+    <select id="pizza">
+        <option value="20">mala</option>
+        <option value="30">srednia</option>
+        <option value="40">duza</option>
+    </select>
+    <p></p>
+    <hr>
+    <!-- 3 -->
+    <input type="checkbox" id="newsletter">Chce newsletter
+    <p id="stan"></p>
+    <hr>
+    <!-- 4 -->
+    <input type="checkbox" id="regu">Akceptuję regulamin
+    <button disabled id="przycisk">Zarejestruj</button>
+    <hr>
+
+    <!-- 5 -->
+    <input type="text" id="tekst">
+    <p>Podgląd: <span id="podglad"></span></p>
+    <hr>
+
+    <!-- 6 -->
+    <textarea id="komentarz" maxlength="100"></textarea>
+    <p>Pozostalo znakow: <span id="licznik">100</span></p>
+</body>
+</html>
