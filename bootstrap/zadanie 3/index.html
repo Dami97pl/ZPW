@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-4.0.0.min.js" integrity="sha256-OaVG6prZf4v69dPg6PhVattBXkcOWQB62pdZ3ORyrao=" crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-sRIl4kxILFvY47J16cr9ZwB07vP4J8+LH7qKQnuqkuIAvNWLzeN8tE5YBujZqJLB" crossorigin="anonymous">
+    <title>Document</title>
+    <style>
+        
+    </style>
+    <script>
+       $(function(){
+
+       })
+    </script>
+</head>
+<body>
+    <!-- wartosci od 0-5, auto dla m i p -->
+    <div class="bg-warning">
+        <div class="m-4 bg-primary text-white">m-4: Odstęp NA ZEWNĄTRZ niebieskiego pola</div>
+    </div>
+
+    <div class="bg-warning">
+        <div class="p-4 bg-primary text-white">p-4: Odstęp WEWNĄTRZ niebieskiego pola</div>
+    </div>
+
+    <!-- {odstęp}{kierunek}-{rozmiar ekranu}-{wartość}
+
+    mt-2
+    t
+    b
+    s (left)
+    e (right)
+    x lewo prawo
+    y góra dół
+    brak wartości - wszystko -->
+
+    <!-- sm - 576px
+    md - 768px
+    lg - 992px (laptop)
+    xl - 1200px
+    xxl - 1400px
+
+    zasada od małego w górę (mobile first) - klasa działa od swojego rozmiaru wzwyż, aż nadpisze ją klasa większego rozmiaru. Można dać kilka klas naraz -->
+
+    <!-- col-12 col-md-6 col-lg-3 === w zależności od ekranu to będzie się zmieniać automatycznie -->
+
+    <!-- Rozszyfruj klasy i zapisz ich znaczenie:
+    pt-4 = padding top 4
+    mx-2 = margin lewo-prawo 2
+    pb-0 = padding bottom 0
+    me-3 = margin right 3
+    py-md-5 = padding góra-dół na średnim ekranie
+    m-lg-auto = margin na dużym ekranie automatyczny
+
+
+    Napisz klasę dla opisu:
+    (a) margines dolny 4 = mb-4
+    (b) padding góra i dół 2 = py-2
+    (c) lewy margines 1 = ms-1
+    (d) padding ze wszystkich stron 5, ale dopiero od laptopa = p-lg-5 -->
+    
+    <!-- Zadanie 6.4 - Zrób trzy akapity jeden pod drugim, między którymi jest duży odstęp 5, a ostatni akapit nie ma żądnego marginesu dolnego. -->
+
+    <!-- <p class="m-5">c</p>
+    <p class="m-5">c</p>
+    <p>c</p> -->
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
+</body>
+</html>
